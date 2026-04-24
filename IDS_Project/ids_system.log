@@ -21961,3 +21961,187 @@ weighted avg       1.00      1.00      1.00        40
 2026-04-24 20:27:14,787 - INFO - Prediction generated for Code.exe (PID: 4736).
 2026-04-24 20:27:14,928 - INFO - Prediction generated for brave.exe (PID: 6108).
 2026-04-24 20:27:15,820 - INFO - Prediction generated for msedgewebview2.exe (PID: 6556).
+2026-04-24 20:27:18,061 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:27:18,130 - INFO - Prediction generated for brave.exe (PID: 4820).
+2026-04-24 20:27:19,195 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:20,058 - INFO - Prediction generated for msedgewebview2.exe (PID: 6556).
+2026-04-24 20:27:20,366 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:27:22,376 - INFO - Prediction generated for brave.exe (PID: 4820).
+2026-04-24 20:27:23,063 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:23,625 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:27:23,995 - INFO - Prediction generated for msedgewebview2.exe (PID: 6556).
+2026-04-24 20:27:26,282 - INFO - Prediction generated for brave.exe (PID: 4820).
+2026-04-24 20:27:26,528 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:27:27,326 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:28,302 - INFO - Prediction generated for msedgewebview2.exe (PID: 6556).
+2026-04-24 20:27:28,476 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:27:29,594 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:29] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:27:29,601 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:29] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:27:29,616 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:29] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:27:29,621 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:29] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:27:30,698 - INFO - Prediction generated for brave.exe (PID: 4820).
+2026-04-24 20:27:31,258 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:31,404 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:27:32,303 - INFO - Prediction generated for msedgewebview2.exe (PID: 6556).
+2026-04-24 20:27:34,038 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:27:34,666 - INFO - Prediction generated for brave.exe (PID: 4820).
+2026-04-24 20:27:35,514 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:36,525 - INFO - Prediction generated for msedgewebview2.exe (PID: 6556).
+2026-04-24 20:27:36,614 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:27:37,437 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:37] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:27:37,488 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:37] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:27:37,802 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:38,598 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:27:38,802 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:38,853 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:38] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:27:38,866 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:38] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:27:38,931 - INFO - Prediction generated for brave.exe (PID: 4820).
+2026-04-24 20:27:39,485 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:40,141 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:40,360 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:40] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:27:40,376 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:40] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:27:40,446 - INFO - Prediction generated for msedgewebview2.exe (PID: 6556).
+2026-04-24 20:27:40,559 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:27:41,150 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:41,826 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:42,574 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:42] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:27:42,587 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:42] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:27:42,874 - INFO - Prediction generated for brave.exe (PID: 4820).
+2026-04-24 20:27:43,138 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:43,231 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:27:43,579 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:43] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:27:43,592 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:43] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:27:44,470 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:44,652 - INFO - Prediction generated for msedgewebview2.exe (PID: 6556).
+2026-04-24 20:27:45,158 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:45] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:27:45,196 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:45] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:27:45,456 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:46,116 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:46,186 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:27:46,578 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:46] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:27:46,591 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:46] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:27:47,125 - INFO - Prediction generated for brave.exe (PID: 4820).
+2026-04-24 20:27:47,408 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:48,066 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:48,437 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:27:48,524 - INFO - Prediction generated for msedgewebview2.exe (PID: 6556).
+2026-04-24 20:27:48,580 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:48] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:27:48,591 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:48] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:27:48,732 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:49,588 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:49] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:27:49,609 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:49] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:27:49,739 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:50,974 - INFO - Prediction generated for brave.exe (PID: 4820).
+2026-04-24 20:27:51,051 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:51,343 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:27:51,584 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:51] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:27:51,786 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:51] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:27:52,071 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:52,593 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:52] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:27:52,635 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:52] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:27:52,755 - INFO - Prediction generated for msedgewebview2.exe (PID: 6556).
+2026-04-24 20:27:52,758 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:53,729 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:27:54,436 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:54,581 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:54] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:27:54,594 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:54] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:27:55,467 - INFO - Prediction generated for brave.exe (PID: 4820).
+2026-04-24 20:27:55,589 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:55] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:27:55,605 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:55] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:27:56,126 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:27:56,405 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:27:56,803 - INFO - Prediction generated for msedgewebview2.exe (PID: 6556).
+2026-04-24 20:27:57,586 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:57] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:27:57,598 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:57] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:27:58,580 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:58] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:27:58,592 - INFO - 127.0.0.1 - - [24/Apr/2026 20:27:58] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:27:59,307 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:27:59,391 - INFO - Prediction generated for brave.exe (PID: 4820).
+2026-04-24 20:28:00,102 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:28:00,580 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:00] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:00,595 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:00] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:01,152 - INFO - Prediction generated for msedgewebview2.exe (PID: 6556).
+2026-04-24 20:28:01,589 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:01] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:01,600 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:01] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:02,231 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:28:03,319 - INFO - Prediction generated for brave.exe (PID: 4820).
+2026-04-24 20:28:03,583 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:03] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:03,593 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:03] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:03,784 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:28:04,576 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:04] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:04,588 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:04] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:04,805 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:28:05,079 - INFO - Prediction generated for msedgewebview2.exe (PID: 6556).
+2026-04-24 20:28:06,580 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:06] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:06,591 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:06] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:07,480 - INFO - Prediction generated for brave.exe (PID: 4820).
+2026-04-24 20:28:07,576 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:07] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:07,587 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:07] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:07,661 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:28:07,712 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:28:08,960 - INFO - Prediction generated for msedgewebview2.exe (PID: 6556).
+2026-04-24 20:28:09,577 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:09] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:09,589 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:09] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:10,579 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:10] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:10,594 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:10] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:11,070 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:28:11,462 - INFO - Prediction generated for brave.exe (PID: 4820).
+2026-04-24 20:28:11,932 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:28:12,579 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:12] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:12,591 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:12] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:13,029 - INFO - Prediction generated for msedgewebview2.exe (PID: 6556).
+2026-04-24 20:28:13,581 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:13] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:13,594 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:13] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:14,091 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:28:15,578 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:15] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:15,589 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:15] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:15,669 - INFO - Prediction generated for brave.exe (PID: 4820).
+2026-04-24 20:28:15,795 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:28:16,589 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:16] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:16,626 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:16] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:17,027 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:28:17,317 - INFO - Prediction generated for msedgewebview2.exe (PID: 6556).
+2026-04-24 20:28:18,589 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:18] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:18,601 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:18] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:19,540 - INFO - Prediction generated for brave.exe (PID: 4820).
+2026-04-24 20:28:19,586 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:19] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:19,599 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:19] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:19,943 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:28:20,013 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:28:21,180 - INFO - Prediction generated for msedgewebview2.exe (PID: 6556).
+2026-04-24 20:28:21,587 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:21] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:21,599 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:21] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:22,580 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:22] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:22,592 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:22] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:23,160 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:28:23,708 - INFO - Prediction generated for brave.exe (PID: 4820).
+2026-04-24 20:28:23,865 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:28:24,583 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:24] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:24,593 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:24] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:25,382 - INFO - Prediction generated for msedgewebview2.exe (PID: 6556).
+2026-04-24 20:28:25,587 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:25] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:25,598 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:25] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:26,042 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:28:27,545 - INFO - Prediction generated for brave.exe (PID: 4820).
+2026-04-24 20:28:27,582 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:27] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:27,594 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:27] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:28,043 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:28:28,590 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:28] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:28,603 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:28] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:28,613 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:28:29,221 - INFO - Prediction generated for msedgewebview2.exe (PID: 6556).
+2026-04-24 20:28:29,589 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:29] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:29,605 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:29] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:30,580 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:30] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:30,593 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:30] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:31,204 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:28:31,577 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:31] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:31,589 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:31] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:31,731 - INFO - Prediction generated for brave.exe (PID: 4820).
+2026-04-24 20:28:31,920 - INFO - Prediction generated for brave.exe (PID: 6108).
+2026-04-24 20:28:33,419 - INFO - Prediction generated for msedgewebview2.exe (PID: 6556).
+2026-04-24 20:28:33,585 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:33] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:33,598 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:33] "GET /api/events HTTP/1.1" 200 -
+2026-04-24 20:28:33,775 - INFO - Prediction generated for Code.exe (PID: 4736).
+2026-04-24 20:28:34,586 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:34] "GET /api/stats HTTP/1.1" 200 -
+2026-04-24 20:28:34,598 - INFO - 127.0.0.1 - - [24/Apr/2026 20:28:34] "GET /api/events HTTP/1.1" 200 -
