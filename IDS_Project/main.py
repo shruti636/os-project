@@ -8,12 +8,12 @@ def execute_pipeline():
     generate_real_dataset(duration_per_class=10)
     logger.info("--- Phase 2: Neural Engine Training ---")
     train_model(dataset_path="data/dataset.csv")
-    
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--generate", action="store_true", help="Harvest real dataset")
     parser.add_argument("--train", action="store_true", help="Train the model")
-    
+
     args = parser.parse_args()
 
     if args.generate:

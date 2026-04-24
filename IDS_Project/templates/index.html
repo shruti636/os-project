@@ -69,7 +69,7 @@
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        
+
         .glass-panel:hover {
             border-color: rgba(255, 255, 255, 0.1);
             transform: translateY(-2px);
@@ -154,7 +154,7 @@
             background: rgba(0, 240, 255, 0.1);
             color: var(--accent-cyan);
         }
-        
+
         .event-card.malicious .status-badge {
             background: rgba(255, 76, 76, 0.1);
             color: var(--alert-red);
@@ -196,7 +196,7 @@
             text-shadow: 0 0 10px rgba(255,255,255,0.2);
             font-family: 'Source Code Pro', monospace;
         }
-        
+
         .stat-box.safe .stat-value {
             color: #00ff9d;
             text-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
@@ -246,7 +246,7 @@
             margin-left: 15px;
             letter-spacing: 1px;
         }
-        
+
         .kill-btn:hover {
             background: #ff1a1a;
             box-shadow: 0 0 15px var(--alert-red);
@@ -267,7 +267,7 @@
             from { transform: translateX(-20px); opacity: 0; }
             to { transform: translateX(0); opacity: 1; }
         }
-        
+
         @keyframes fadeInDown {
             from { transform: translateY(-30px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
@@ -325,7 +325,7 @@
 
     <script>
         let firstLoad = true;
-        
+
         // Counter Animation Function
         function animateValue(obj, start, end, duration) {
             if(start === end) return;
@@ -388,7 +388,7 @@
             btn.style.boxShadow = "none";
             btn.className = ""; // Remove hover effects
             btn.disabled = true;
-            
+
             // Fade out the malicious row to show it was dealt with
             const card = btn.closest('.event-card');
             card.style.opacity = "0.5";
@@ -396,7 +396,7 @@
             card.querySelector('.status-badge').innerText = "CONTAINED";
             card.querySelector('.status-badge').style.background = "rgba(100, 116, 139, 0.2)";
             card.querySelector('.status-badge').style.color = "var(--text-muted)";
-            
+
             // Sweet Alert Native
             alert(`[DEFENSE MECHANISM ACTIVATED]\n\nMalicious Process PID: ${pid} has been contained and securely terminated by the Neural Engine.`);
         }
@@ -408,18 +408,18 @@
                 const statData = await statRes.json();
                 const evtRes = await fetch('/api/events');
                 const events = await evtRes.json();
-                
+
                 // --- Render Logic ---
                 const safeEl = document.getElementById('safeCount');
                 const alertEl = document.getElementById('maliciousCount');
-                
+
                 if(parseInt(safeEl.innerText) !== statData.safe) { animateValue(safeEl, parseInt(safeEl.innerText) || 0, statData.safe, 500); }
                 if(parseInt(alertEl.innerText) !== statData.malicious) { animateValue(alertEl, parseInt(alertEl.innerText) || 0, statData.malicious, 500); }
-                
+
                 // Update System Status
                 const sysStatus = document.getElementById('sysStatus');
                 const sysPulse = document.getElementById('sysPulse');
-                
+
                 if(statData.status.includes("ACTIVE") || statData.status.includes("GENERATING")) {
                     sysStatus.innerText = statData.status;
                     sysStatus.style.color = "var(--accent-cyan)";
@@ -436,18 +436,18 @@
                 if (events.length > 0) {
                     const latestEvent = events[0];
                     const timeLabel = latestEvent.timestamp.split(' ')[1] || latestEvent.timestamp;
-                    
+
                     // Only push if the timestamp is completely new
                     if (threatChart.data.labels[threatChart.data.labels.length - 1] !== timeLabel) {
                         threatChart.data.labels.push(timeLabel);
                         threatChart.data.datasets[0].data.push(latestEvent.confidence);
-                        
+
                         // Keep chart to last 15 ticks to prevent overcrowding
                         if(threatChart.data.labels.length > 15) {
                             threatChart.data.labels.shift();
                             threatChart.data.datasets[0].data.shift();
                         }
-                        
+
                         // Dynamically change chart color if threat detected
                         if (latestEvent.prediction === "MALICIOUS") {
                             threatChart.data.datasets[0].borderColor = '#ff4c4c'; 
@@ -459,7 +459,7 @@
                             threatChart.data.datasets[0].backgroundColor = 'rgba(0, 240, 255, 0.1)';
                             threatChart.data.datasets[0].pointBackgroundColor = '#00f0ff';
                         }
-                        
+
                         threatChart.update();
                     }
                 }
@@ -472,10 +472,10 @@
                 events.forEach(evt => {
                     const card = document.createElement('div');
                     card.className = `event-card ${evt.prediction.toLowerCase()}`;
-                    
+
                     const isMalicious = evt.prediction === "MALICIOUS";
                     const statusText = isMalicious ? "THREAT DETECTED" : "NORMAL";
-                    
+
                     card.innerHTML = `
                         <div class="card-header">
                             <div>

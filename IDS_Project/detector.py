@@ -13,11 +13,11 @@ class RealTimeDetector:
         logger.info("Loading Intrusion Detection Model...")
         with open(model_path, 'rb') as mf:
             self.model = pickle.load(mf)
-            
+
         logger.info("Loading Feature Extractor...")
         with open(extractor_path, 'rb') as ef:
             self.extractor = pickle.load(ef)
-            
+
         self.alert_history = deque(maxlen=100) # Store last 100 alerts for UI/Logs
         logger.info("Real-Time Detector Initialized Successfully.")
 
@@ -31,14 +31,14 @@ class RealTimeDetector:
         # Feature extraction
         try:
             features = self.extractor.transform([syscall_sequence])
-            
+
             # Predict
             prob = self.model.predict_proba(features)[0]
             malicious_prob = prob[1]
-            
+
             # Threshold for alert
             status = "MALICIOUS" if malicious_prob > 0.6 else "SAFE"
-            
+
             # Formatting event
             event = {
                 "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
@@ -47,16 +47,16 @@ class RealTimeDetector:
                 "confidence": round(malicious_prob * 100, 2),
                 "sequence_preview": syscall_sequence[:30] + "..."
             }
-            
+
             self.alert_history.append(event)
-            
+
             if status == "MALICIOUS":
                 logger.warning(f"[🚨 ALERT] PID {process_id} flagged as MALICIOUS! Confidence: {event['confidence']}%")
             else:
                 logger.info(f"[✅ SAFE] PID {process_id} behaves normally. Confidence: {100-event['confidence']}%")
-                
+
             return event
-            
+
         except Exception as e:
             logger.error(f"Error analyzing window: {e}")
             return None

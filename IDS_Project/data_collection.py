@@ -34,10 +34,10 @@ def harvest_windows_proxy_syscalls(pid, duration=10):
             time.sleep(0.2)
             io_2 = proc.io_counters()
             conn_2 = len(proc.connections())
-            
+
             reads = io_2.read_count - io_1.read_count
             writes = io_2.write_count - io_1.write_count
-            
+
             for _ in range(min(reads, 8)): syscalls.append("read")
             for _ in range(min(writes, 8)): syscalls.append("write")
             if conn_2 != conn_1: syscalls.extend(["socket", "connect", "bind"])
@@ -86,26 +86,26 @@ def generate_real_dataset(duration_per_class=10):
     ensure_dirs()
     logger.info("Initializing Real OS Threat Hooking pipeline...")
     data = []
-    
+
     # 1. Gather NORMAL data traces
     normal_pid = get_target_pid(['chrome', 'firefox', 'brave', 'code', 'explorer'])
     logger.info(f"[1/2] Hooking 'Normal' Activity trace onto PID {normal_pid}...")
     normal_calls = collect_syscall_stream(normal_pid, duration_per_class)
     for w in create_windows(normal_calls):
         if w.strip(): data.append({"sequence": w, "label": 0})
-        
+
     # 2. Gather MALICIOUS data traces
     logger.info("[2/2] Spawning Live Malware Simulator process...")
     malware_proc = subprocess.Popen([sys.executable, 'malware_simulator.py'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     time.sleep(1) # Let it heat up
     logger.info(f"Hooking 'Malicious' Activity trace onto Malware PID {malware_proc.pid}...")
-    
+
     malware_calls = collect_syscall_stream(malware_proc.pid, duration_per_class)
     for w in create_windows(malware_calls):
         if w.strip(): data.append({"sequence": w, "label": 1})
-        
+
     malware_proc.terminate() # Kill the simulated threat
-    
+
     # Scikit-Learn Validation Failsafe
     df_val = pd.DataFrame(data) if data else None
     if df_val is None or len(df_val) < 10 or len(df_val['label'].unique()) < 2 or min(df_val['label'].value_counts()) < 3:

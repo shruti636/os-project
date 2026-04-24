@@ -40,13 +40,4 @@ sudo python app.py
 
 ---
 
-## 🎓 OS Viva Potential Questions & Answers
 
-**Q: Why use System Call monitoring over network packet monitoring?**
-**A:** System calls (`open`, `read`, `socket`) are the fundamental language between the Operating System (Kernel Space) and applications (User Space). Even if an attacker encrypts their network traffic, their payload still *must* request physical OS resources (like creating a file or mutating permissions). We catch the physical OS interaction itself.
-
-**Q: Why use Random Forest Machine Learning?**
-**A:** Antiviruses look for *Signatures* (known virus hashes). This approach fails against "Zero-Day" attacks. Our Random Forest approach detects anomalies based purely on generic *Behavior* (e.g., executing `open` 500 times in 1 second alongside network `binds` indicates ransomware), allowing it to identify previously completely unknown viruses.
-
-**Q: How does this work natively on Windows if `strace` is Linux exclusive?**
-**A:** We wrote a custom hardware polling wrapper using `psutil`. Instead of grabbing physical syscall logs, the wrapper targets active CPU threads and measures exact delta changes in Read/Write bytes and Socket connections exactly every 0.3 seconds. We map these physical delta spikes to mock posix system calls (i.e. generating continuous `read`, `write`, `socket` feeds), feeding the ML Engine perfect metrics without breaking the Windows architecture.

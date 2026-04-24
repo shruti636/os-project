@@ -9,7 +9,7 @@ from utils import logger, ensure_dirs
 
 def train_model(dataset_path="data/dataset.csv", model_path="models/rf_model.pkl", extractor_path="models/extractor.pkl"):
     ensure_dirs()
-    
+
     if not os.path.exists(dataset_path):
         logger.error(f"Dataset {dataset_path} not found. Please generate it first.")
         return
@@ -35,7 +35,7 @@ def train_model(dataset_path="data/dataset.csv", model_path="models/rf_model.pkl
     # Evaluation
     logger.info("Evaluating model...")
     y_pred = model.predict(X_test)
-    
+
     acc = accuracy_score(y_test, y_pred)
     prec = precision_score(y_test, y_pred)
     rec = recall_score(y_test, y_pred)
@@ -56,7 +56,7 @@ def train_model(dataset_path="data/dataset.csv", model_path="models/rf_model.pkl
         pickle.dump(model, f)
     with open(extractor_path, 'wb') as f:
         pickle.dump(extractor, f)
-    
+
     logger.info("Training Complete! Models saved to 'models/' directory.")
 
 if __name__ == "__main__":

@@ -37,10 +37,10 @@ except Exception as e:
 def start_real_tracing():
     """Automatically finds REAL browsers or editors to monitor upon Flask boot."""
     if not detector: return
-    
+
     # We are explicitly searching for these real local programs, PLUS any High-CPU Anomalies:
     targets = get_target_pids(['chrome', 'code', 'brave', 'msedge'])
-    
+
     if targets:
         logger.info(f"Found {len(targets)} valid targets. Connecting threads...")
         for pid, name in targets:
@@ -63,7 +63,7 @@ def stats():
     total = len(events_queue)
     malicious = sum(1 for e in events_queue if e['prediction'] == 'MALICIOUS')
     safe = total - malicious
-    
+
     return jsonify({
         "total": total,
         "safe": safe,
