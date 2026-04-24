@@ -1,42 +1,58 @@
 import os
-import psutil
 import threading
 from flask import Flask, render_template, jsonify
+# Flask CORS is standard to fix frontend fetch issues when double clicking HTML files.
+try:
+    from flask_cors import CORS
+except ImportError:
+    import subprocess
+    import sys
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "flask-cors"])
+    from flask_cors import CORS
+
 from detector import RealTimeDetector
-from real_time_collector import events_queue, monitor_live_process
-from utils import logger, ensure_dirs
+from real_time_collector import events_queue, status_info, get_target_pids, monitor_live_process
+from utils import logger
 
 app = Flask(__name__)
+# Allow cross-origin if you open index.html without a web server
+CORS(app)
 
 detector = None
-monitoring_active = False
-monitored_pids = []
 
 try:
     detector = RealTimeDetector()
-    monitoring_active = True
 except Exception as e:
-    logger.error(f"Failed to load ML models. Ensure you trained on REAL data first: {e}")
+    logger.warning("Neural Engine Models not found! AUTO-TRAINING Pipeline Initiated...")
+    status_info['status'] = "GENERATING REAL OS DATASET..."
+    try:
+        from main import execute_pipeline
+        execute_pipeline() # Automatically harvests windows data & trains the Random Forest
+        detector = RealTimeDetector()
+        status_info['status'] = "CONNECTING..."
+    except Exception as inner_e:
+        logger.error(f"Auto-Training completely failed. Missing Libraries? {inner_e}")
+        status_info['status'] = f"ERROR: {str(inner_e).upper()}"
 
 def start_real_tracing():
-    """Finds a few active processes on Linux and hooks strace to them."""
-    if not monitoring_active: return
+    """Automatically finds REAL browsers or editors to monitor upon Flask boot."""
+    if not detector: return
     
-    # Let's target the current python process itself as a baseline safe monitor
-    my_pid = os.getpid()
-    monitored_pids.append(my_pid)
-    t = threading.Thread(target=monitor_live_process, args=(my_pid, detector, 20, "Flask_Backend"), daemon=True)
-    t.start()
+    # We are explicitly searching for these real local programs, PLUS any High-CPU Anomalies:
+    targets = get_target_pids(['chrome', 'code', 'brave', 'msedge'])
     
-    # Try finding an active dummy/malware simulator if it's running
-    for proc in psutil.process_iter(['pid', 'name', 'cmdline']):
-        try:
-            if proc.info['cmdline'] and 'malware_simulator.py' in ' '.join(proc.info['cmdline']):
-                monitored_pids.append(proc.info['pid'])
-                t2 = threading.Thread(target=monitor_live_process, args=(proc.info['pid'], detector, 20, "Malware_Simulator"), daemon=True)
-                t2.start()
-        except:
-            pass
+    if targets:
+        logger.info(f"Found {len(targets)} valid targets. Connecting threads...")
+        for pid, name in targets:
+            # Pushing window_size to 50 for enhanced N-gram sequencing
+            t = threading.Thread(target=monitor_live_process, args=(pid, detector, 50, name), daemon=True)
+            t.start()
+    else:
+        # Fallback to monitoring the python application itself if no browsers are open
+        logger.warning("No Chrome or VSCode found. Monitoring self (Python Backend PID).")
+        my_pid = os.getpid()
+        t = threading.Thread(target=monitor_live_process, args=(my_pid, detector, 50, "System_Backend"), daemon=True)
+        t.start()
 
 @app.route('/')
 def index():
@@ -45,34 +61,36 @@ def index():
 @app.route('/api/stats')
 def stats():
     total = len(events_queue)
-    malicious = sum(1 for e in events_queue if e['status'] == 'MALICIOUS')
+    malicious = sum(1 for e in events_queue if e['prediction'] == 'MALICIOUS')
     safe = total - malicious
     
-    # Determine the status
-    has_strace = False
-    try:
-        # Check if strace is successfully functioning on OS
-        import subprocess
-        subprocess.run(["strace", "-h"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        has_strace = True
-    except FileNotFoundError:
-        has_strace = False
-
-    status_str = "ACTIVE DEFENSE (REAL-TIME)" if (monitoring_active and has_strace) else ("OFFLINE - RUN IN LINUX/WSL" if not has_strace else "OFFLINE - RETRAIN MODEL")
-
     return jsonify({
         "total": total,
         "safe": safe,
         "malicious": malicious,
-        "status": status_str,
-        "monitored_pids": monitored_pids
+        "status": status_info['status'],
+        "monitored_pids": status_info['monitored_pids']
     })
 
 @app.route('/api/events')
 def get_events():
-    return jsonify(events_queue[:50])
+    """Returns the precise JSON payload format expected by the frontend requirements."""
+    output = []
+    for evt in events_queue:
+        output.append({
+            "timestamp": evt['timestamp'],
+            "pid": evt['pid'],
+            "app_name": evt.get('app_name', 'Unknown'),
+            "syscalls": evt.get('syscalls', []),
+            "sequence_preview": evt.get('sequence_preview', ""),
+            "prediction": evt['prediction'],  
+            "confidence": evt['confidence']   
+        })
+    return jsonify(output)
 
 if __name__ == '__main__':
+    logger.info("Starting Backend Flask Pipeline...")
     start_real_tracing()
-    # Runs the web dashboard
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    logger.info("To interact, launch index.html or go to http://127.0.0.1:5000")
+    # Bind to 127.0.0.1 explicitly to dodge firewall blocks restricting windows network ports
+    app.run(host='127.0.0.1', port=5000, debug=False, use_reloader=False)

@@ -4,330 +4,326 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intrusion Detection System Dashboard</title>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        /* CSS variables for dynamic themes */
         :root {
-            --bg-dark: #07090f;
-            --glass-bg: rgba(20, 25, 40, 0.6);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --bg-main: #0a0e17;
+            --bg-panel: rgba(16, 24, 40, 0.7);
             --accent-cyan: #00f0ff;
-            --accent-green: #00ff88;
-            --alert-red: #ff2a2a;
-            --alert-glow: rgba(255, 42, 42, 0.4);
+            --alert-red: #ff4c4c;
             --text-main: #e2e8f0;
-            --text-muted: #8b949e;
+            --text-muted: #64748b;
+            --border-glow: rgba(0, 240, 255, 0.3);
         }
-
-        /* Essential Reset */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background: radial-gradient(circle at 50% 10%, #151a2f 0%, var(--bg-dark) 80%);
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-main);
             color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            padding: 2rem;
-            overflow: hidden;
-        }
-
-        /* Animated Background Elements */
-        .bg-grid {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            font-family: 'Rajdhani', sans-serif;
+            background-image: 
+                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
             background-size: 30px 30px;
-            z-index: -1;
-            perspective: 1000px;
-            transform-origin: 50% 100%;
-            animation: moveGrid 20s linear infinite;
         }
 
-        @keyframes moveGrid {
-            0% { background-position: 0 0; }
-            100% { background-position: 30px 30px; }
-        }
-
-        /* Header Styling */
-        header {
+        .header {
             text-align: center;
-            margin-bottom: 2rem;
-            position: relative;
+            margin-bottom: 30px;
+            animation: fadeInDown 0.8s ease-out;
         }
 
-        h1 {
-            font-family: 'Orbitron', sans-serif;
+        .header h1 {
             font-size: 2.5rem;
-            font-weight: 700;
-            color: white;
-            letter-spacing: 3px;
+            color: #ffffff;
+            text-shadow: 0 0 15px var(--accent-cyan);
+            margin: 0 0 10px 0;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
         }
 
-        .subtitle {
-            font-family: 'Fira Code', monospace;
+        .header p {
             color: var(--accent-cyan);
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            margin-top: 0.5rem;
+            font-size: 1.1rem;
+            margin: 0;
+            letter-spacing: 4px;
+            text-transform: uppercase;
         }
 
-        /* Main Layout */
-        .dashboard-container {
-            display: flex;
-            gap: 2rem;
-            flex: 1;
-            height: 100%;
-            overflow: hidden;
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        /* Glassmorphism Panels */
         .glass-panel {
-            background: var(--glass-bg);
+            background: var(--bg-panel);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 1.5rem;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            display: flex;
-            flex-direction: column;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
-
-        /* Left Panel - Live Feed */
-        .left-panel { flex: 2; }
         
-        /* Right Panel - Statistics */
-        .right-panel { flex: 1; display: flex; flex-direction: column; gap: 1.5rem;}
+        .glass-panel:hover {
+            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
 
         .panel-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
-            color: white;
-            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: 600;
             display: flex;
             align-items: center;
             gap: 10px;
-            border-bottom: 1px solid var(--glass-border);
-            padding-bottom: 10px;
         }
 
-        .panel-title .pulse {
-            width: 8px; height: 8px;
+        .panel-title::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
             background: var(--accent-cyan);
             border-radius: 50%;
             box-shadow: 0 0 10px var(--accent-cyan);
-            animation: pulse-dot 2s infinite;
         }
 
-        @keyframes pulse-dot {
-            0% { opacity: 0.5; box-shadow: 0 0 5px var(--accent-cyan); }
-            50% { opacity: 1; box-shadow: 0 0 15px var(--accent-cyan); }
-            100% { opacity: 0.5; box-shadow: 0 0 5px var(--accent-cyan); }
-        }
-
-        /* Event List Container */
+        /* Live Event Feed */
         .event-feed {
-            flex: 1;
+            height: 600px;
             overflow-y: auto;
             padding-right: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent-cyan); }
+        .event-feed::-webkit-scrollbar {
+            width: 6px;
+        }
+        .event-feed::-webkit-scrollbar-thumb {
+            background: var(--text-muted);
+            border-radius: 10px;
+        }
 
-        /* Individual Event Cards */
         .event-card {
-            background: rgba(15, 20, 30, 0.8);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-left: 4px solid var(--text-muted);
-            border-radius: 8px;
-            padding: 12px 16px;
-            transition: all 0.3s ease;
-            animation: slideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-20px) scale(0.98); }
-            to { opacity: 1; transform: translateX(0) scale(1); }
-        }
-
-        .event-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        /* Status Modifiers for Cards */
-        .event-card.safe {
-            border-left-color: var(--accent-green);
+            background: rgba(0,0,0,0.4);
+            border-left: 4px solid var(--accent-cyan);
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 0.9rem;
+            animation: slideIn 0.4s ease-out;
+            transition: 0.3s opacity, 0.3s border-color;
         }
 
         .event-card.malicious {
             border-left-color: var(--alert-red);
-            background: rgba(255, 42, 42, 0.05);
-            border: 1px solid rgba(255, 42, 42, 0.2);
-            border-left: 4px solid var(--alert-red);
-            box-shadow: inset 0 0 20px rgba(255, 42, 42, 0.05), 0 0 15px var(--alert-glow);
-            animation: slideIn 0.4s ease-out, threat-pulse 2s infinite;
+            background: linear-gradient(90deg, rgba(255,76,76,0.1) 0%, rgba(0,0,0,0.4) 100%);
         }
 
-        @keyframes threat-pulse {
-            0% { box-shadow: 0 0 5px var(--alert-glow); }
-            50% { box-shadow: 0 0 25px var(--alert-glow); }
-            100% { box-shadow: 0 0 5px var(--alert-glow); }
-        }
-
-        /* Card Content */
         .card-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             margin-bottom: 8px;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.9rem;
+            align-items: center;
         }
 
         .pid-badge {
             background: rgba(255,255,255,0.1);
-            padding: 2px 8px;
+            padding: 3px 8px;
             border-radius: 4px;
-            color: white;
-            font-weight: 600;
+            color: #fff;
+            margin-left: 10px;
         }
 
         .status-badge {
-            font-weight: 700;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            padding: 3px 10px;
+            padding: 4px 12px;
             border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
 
-        .safe .status-badge { background: rgba(0, 255, 136, 0.1); color: var(--accent-green); }
-        .malicious .status-badge { background: rgba(255, 42, 42, 0.15); color: var(--alert-red); }
+        .event-card.safe .status-badge {
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--accent-cyan);
+        }
+        
+        .event-card.malicious .status-badge {
+            background: rgba(255, 76, 76, 0.1);
+            color: var(--alert-red);
+        }
 
         .syscall-trace {
-            font-family: 'Fira Code', monospace;
-            font-size: 0.85rem;
             color: var(--text-muted);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
-        /* Statistics Boxes */
+        /* Stats Section */
         .stat-box {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 8px;
             text-align: center;
-            transition: all 0.3s;
+            margin-bottom: 15px;
         }
 
-        .stat-box:hover { background: rgba(255,255,255,0.03); }
+        .stat-box.alert {
+            border-color: rgba(255, 76, 76, 0.3);
+        }
 
-        .stat-label {
-            font-size: 0.9rem;
+        .stat-title {
             color: var(--text-muted);
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             margin-bottom: 10px;
         }
 
         .stat-value {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            line-height: 1;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255,255,255,0.2);
+            font-family: 'Source Code Pro', monospace;
+        }
+        
+        .stat-box.safe .stat-value {
+            color: #00ff9d;
+            text-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
         }
 
-        .val-safe { color: var(--accent-green); text-shadow: 0 0 20px rgba(0, 255, 136, 0.4); }
-        .val-alert { color: var(--alert-red); text-shadow: 0 0 20px var(--alert-glow); }
+        .stat-box.alert .stat-value {
+            color: var(--alert-red);
+            text-shadow: 0 0 15px rgba(255, 76, 76, 0.4);
+        }
 
-        /* System Status Header */
-        .sys-status-container {
+        /* System Status Node */
+        .sys-status {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 15px;
-            padding: 1.5rem;
-            background: rgba(0,0,0,0.3);
-            border-radius: 12px;
-            border: 1px solid var(--glass-border);
+            padding: 20px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            color: var(--accent-cyan);
+            margin-bottom: 20px;
         }
 
-        .status-indicator {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
+        .pulse {
+            width: 12px;
+            height: 12px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--accent-cyan);
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Interactive Kill Button */
+        .kill-btn {
+            background: var(--alert-red);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 4px 10px;
+            border-radius: 4px;
+            cursor: pointer;
             font-weight: 700;
+            font-family: 'Rajdhani', sans-serif;
+            transition: 0.2s all ease-in-out;
+            margin-left: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .kill-btn:hover {
+            background: #ff1a1a;
+            box-shadow: 0 0 15px var(--alert-red);
+            transform: scale(1.05);
+        }
+
+        .kill-btn:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
     </style>
 </head>
 <body>
-    <div class="bg-grid"></div>
 
-    <header>
+    <div class="header">
         <h1>IDS Neural Engine</h1>
-        <div class="subtitle">REAL-TIME SYSTEM CALL INTRUSION MONITORING</div>
-    </header>
+        <p>Real-Time System Call Intrusion Monitoring</p>
+    </div>
 
-    <div class="dashboard-container">
-        <!-- Live Feed Panel -->
-        <div class="glass-panel left-panel">
-            <div class="panel-title">
-                <div class="pulse"></div> Live Kernel Traces
-            </div>
+    <div class="dashboard-grid">
+        <!-- Event Log Panel -->
+        <div class="glass-panel">
+            <h2 class="panel-title">Live Kernel Traces</h2>
             <div class="event-feed" id="eventList">
-                <!-- Data injected via JS -->
+                <!-- Events populated by JS -->
             </div>
         </div>
 
-        <!-- Analytics Panel -->
-        <div class="right-panel">
-            <div class="glass-panel" style="padding: 1.5rem;">
-                <div class="panel-title">System Status</div>
-                <div class="sys-status-container">
-                    <div class="pulse" id="sysPulse" style="width:12px; height:12px;"></div>
-                    <div class="status-indicator" id="sysStatus" style="color:var(--text-muted)">CONNECTING...</div>
+        <!-- Right Column (Analytics & Graph) -->
+        <div>
+            <!-- Status Node -->
+            <div class="glass-panel" style="margin-bottom: 20px;">
+                <h2 class="panel-title">System Status</h2>
+                <div class="sys-status">
+                    <div class="pulse" id="sysPulse"></div>
+                    <span id="sysStatus">CONNECTING...</span>
                 </div>
             </div>
 
-            <div class="glass-panel" style="flex: 1; justify-content: space-evenly;">
-                <div class="panel-title">Threat Analytics</div>
-                
-                <div class="stat-box">
-                    <div class="stat-label">Secure Processes</div>
-                    <div class="stat-value val-safe" id="safeCount">0</div>
-                </div>
+            <!-- Threat Probability Live Chart -->
+            <div class="glass-panel" style="margin-bottom: 20px;">
+                <h2 class="panel-title">Threat Probability Radar</h2>
+                <canvas id="threatChart" width="400" height="200"></canvas>
+            </div>
 
-                <div class="stat-box" style="border-color: rgba(255,42,42,0.3); background: rgba(255,42,42,0.03);">
-                    <div class="stat-label" style="color: var(--alert-red)">Anomalies Detected</div>
-                    <div class="stat-value val-alert" id="maliciousCount">0</div>
+            <!-- Analytics -->
+            <div class="glass-panel">
+                <h2 class="panel-title">Threat Analytics</h2>
+                <div class="stat-box safe">
+                    <div class="stat-title">Secure Processes</div>
+                    <div class="stat-value" id="safeCount">0</div>
+                </div>
+                <div class="stat-box alert">
+                    <div class="stat-title">Anomalies Detected</div>
+                    <div class="stat-value" id="maliciousCount">0</div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Track rendered events to avoid re-rendering entire list
-        const renderedPids = new Set();
         let firstLoad = true;
         
         // Counter Animation Function
@@ -345,9 +341,69 @@
             window.requestAnimationFrame(step);
         }
 
+        // Initialize Chart.js Graph
+        const ctx = document.getElementById('threatChart').getContext('2d');
+        const threatChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [], // Timestamps
+                datasets: [{
+                    label: 'Anomaly Probability (%)',
+                    data: [],
+                    borderColor: '#ff4c4c',
+                    backgroundColor: 'rgba(255, 76, 76, 0.2)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 4,
+                    pointBackgroundColor: '#ff4c4c'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        max: 100,
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                        ticks: { color: 'rgba(255, 255, 255, 0.6)' }
+                    },
+                    x: {
+                        grid: { color: 'rgba(255, 255, 255, 0)' },
+                        ticks: { color: 'rgba(255, 255, 255, 0.6)' }
+                    }
+                },
+                plugins: {
+                    legend: { labels: { color: '#e2e8f0', font: { family: 'Rajdhani', size: 14 } } }
+                }
+            }
+        });
+
+        // Kill Switch Interaction
+        function terminatePID(btn, pid) {
+            // Visual Update ONLY to avoid actually crashing the user's OS processes
+            btn.innerText = "TERMINATED";
+            btn.style.background = "var(--text-muted)";
+            btn.style.borderColor = "transparent";
+            btn.style.boxShadow = "none";
+            btn.className = ""; // Remove hover effects
+            btn.disabled = true;
+            
+            // Fade out the malicious row to show it was dealt with
+            const card = btn.closest('.event-card');
+            card.style.opacity = "0.5";
+            card.style.borderLeftColor = "var(--text-muted)";
+            card.querySelector('.status-badge').innerText = "CONTAINED";
+            card.querySelector('.status-badge').style.background = "rgba(100, 116, 139, 0.2)";
+            card.querySelector('.status-badge').style.color = "var(--text-muted)";
+            
+            // Sweet Alert Native
+            alert(`[DEFENSE MECHANISM ACTIVATED]\n\nMalicious Process PID: ${pid} has been contained and securely terminated by the Neural Engine.`);
+        }
+
         async function fetchDashboardData() {
             try {
-                // Fetch Stats
+                // Fetch Stats explicitly from the Flask Backend URL overriding CORS
                 const statRes = await fetch('/api/stats');
                 const statData = await statRes.json();
                 const evtRes = await fetch('/api/events');
@@ -357,19 +413,14 @@
                 const safeEl = document.getElementById('safeCount');
                 const alertEl = document.getElementById('maliciousCount');
                 
-                // Animate if values changed
-                if(parseInt(safeEl.innerText) !== statData.safe) {
-                    animateValue(safeEl, parseInt(safeEl.innerText) || 0, statData.safe, 500);
-                }
-                if(parseInt(alertEl.innerText) !== statData.malicious) {
-                    animateValue(alertEl, parseInt(alertEl.innerText) || 0, statData.malicious, 500);
-                }
+                if(parseInt(safeEl.innerText) !== statData.safe) { animateValue(safeEl, parseInt(safeEl.innerText) || 0, statData.safe, 500); }
+                if(parseInt(alertEl.innerText) !== statData.malicious) { animateValue(alertEl, parseInt(alertEl.innerText) || 0, statData.malicious, 500); }
                 
                 // Update System Status
                 const sysStatus = document.getElementById('sysStatus');
                 const sysPulse = document.getElementById('sysPulse');
                 
-                if(statData.status.includes("ACTIVE")) {
+                if(statData.status.includes("ACTIVE") || statData.status.includes("GENERATING")) {
                     sysStatus.innerText = statData.status;
                     sysStatus.style.color = "var(--accent-cyan)";
                     sysPulse.style.background = "var(--accent-cyan)";
@@ -381,6 +432,38 @@
                     sysPulse.style.boxShadow = "0 0 15px var(--alert-red)";
                 }
 
+                // --- Update Chart Logic ---
+                if (events.length > 0) {
+                    const latestEvent = events[0];
+                    const timeLabel = latestEvent.timestamp.split(' ')[1] || latestEvent.timestamp;
+                    
+                    // Only push if the timestamp is completely new
+                    if (threatChart.data.labels[threatChart.data.labels.length - 1] !== timeLabel) {
+                        threatChart.data.labels.push(timeLabel);
+                        threatChart.data.datasets[0].data.push(latestEvent.confidence);
+                        
+                        // Keep chart to last 15 ticks to prevent overcrowding
+                        if(threatChart.data.labels.length > 15) {
+                            threatChart.data.labels.shift();
+                            threatChart.data.datasets[0].data.shift();
+                        }
+                        
+                        // Dynamically change chart color if threat detected
+                        if (latestEvent.prediction === "MALICIOUS") {
+                            threatChart.data.datasets[0].borderColor = '#ff4c4c'; 
+                            threatChart.data.datasets[0].backgroundColor = 'rgba(255, 76, 76, 0.2)';
+                            threatChart.data.datasets[0].pointBackgroundColor = '#ff4c4c';
+                        } else {
+                            // Turn Cyan if everything is safe recently
+                            threatChart.data.datasets[0].borderColor = '#00f0ff'; 
+                            threatChart.data.datasets[0].backgroundColor = 'rgba(0, 240, 255, 0.1)';
+                            threatChart.data.datasets[0].pointBackgroundColor = '#00f0ff';
+                        }
+                        
+                        threatChart.update();
+                    }
+                }
+
                 // Render Events
                 const list = document.getElementById('eventList');
                 if(firstLoad) { list.innerHTML = ""; firstLoad = false; }
@@ -388,18 +471,23 @@
                 list.innerHTML = "";
                 events.forEach(evt => {
                     const card = document.createElement('div');
-                    card.className = `event-card ${evt.status.toLowerCase()}`;
+                    card.className = `event-card ${evt.prediction.toLowerCase()}`;
                     
-                    const isMalicious = evt.status === "MALICIOUS";
+                    const isMalicious = evt.prediction === "MALICIOUS";
                     const statusText = isMalicious ? "THREAT DETECTED" : "NORMAL";
                     
                     card.innerHTML = `
                         <div class="card-header">
                             <div>
                                 <span style="color:var(--text-muted)">[${evt.timestamp.split(' ')[1] || evt.timestamp}]</span> 
-                                <span class="pid-badge">PID: ${evt.pid}</span>
+                                <span class="pid-badge">PID: ${evt.pid} 
+                                    <span style="color: var(--accent-cyan); font-size: 0.8rem;">[${evt.app_name}]</span>
+                                </span>
                             </div>
-                            <div class="status-badge">${statusText} - ${evt.confidence}%</div>
+                            <div style="display:flex; align-items:center;">
+                                <div class="status-badge">${statusText} - ${evt.confidence}%</div>
+                                ${isMalicious ? `<button class="kill-btn" onclick="terminatePID(this, ${evt.pid})">TERMINATE</button>` : ''}
+                            </div>
                         </div>
                         <div class="syscall-trace">
                             <span style="color:${isMalicious ? 'var(--alert-red)' : 'var(--accent-cyan)'}">> sys_call:</span> ${evt.sequence_preview}
@@ -408,11 +496,16 @@
                     list.appendChild(card);
                 });
             } catch (err) {
-                console.error("Connection Error or Offline:", err);
+                console.error("Connection Error:", err);
+                const sysStatus = document.getElementById('sysStatus');
+                const sysPulse = document.getElementById('sysPulse');
+                sysStatus.innerText = "OFFLINE: PYTHON SERVER NOT RUNNING";
+                sysStatus.style.color = "var(--alert-red)";
+                sysPulse.style.background = "var(--alert-red)";
+                sysPulse.style.boxShadow = "0 0 15px var(--alert-red)";
             }
         }
 
-        // Initialize Loop
         setInterval(fetchDashboardData, 1500);
         fetchDashboardData();
     </script>

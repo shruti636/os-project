@@ -1,0 +1,201 @@
+sequence,label
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
+read write open stat poll gettimeofday sched_yield,0
+execve clone ptrace kill chmod unlink socket bind mmap fstat,1
